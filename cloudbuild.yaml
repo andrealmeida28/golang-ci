@@ -6,10 +6,6 @@ steps:
 
 #adicione este step depois do up -d
 
--   id: "Chown in /var/www"
-    name: 'gcr.io/cloud-builders/docker'
-    args: ['exec','-u','root','-t','app','chown','-R','www-data:www-data','/go']
-
 -   id: "Rodando docker ps"
     name: 'gcr.io/cloud-builders/docker'
     args: ['ps']
