@@ -7,8 +7,8 @@ steps:
 
 -   id: "Rodando o teste unitario soma_test.go"
     name: 'mirror.gcr.io/library/golang'
-    env: ['GOPATH=/src/main']
-    args: ["go","test"]
+    args: ['test','soma_test.go']
+    env: ['GOPATH=.']
 
 -   id: "Rodando o soma.go"
     name: 'mirror.gcr.io/library/golang'
