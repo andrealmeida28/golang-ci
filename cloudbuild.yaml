@@ -7,7 +7,7 @@ steps:
 
 -   id: "Rodando teste unitario"
     name: 'mirror.gcr.io/library/golang'
-    args: ['go','test', '-v']
+    args: ['go','test','--run','src/main/soma_test.go']
 
 -   id: "Push da imagem gerada"
     name: 'gcr.io/cloud-builders/docker'
