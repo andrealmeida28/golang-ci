@@ -3,11 +3,11 @@ steps:
 -   id: "Buildando o soma.go"
     name: 'mirror.gcr.io/library/golang'
     env: ['GO111MODULE=on']
-    args: ['go','build','src/main/soma.go']
+    args: ['go','run','src/main/soma.go']
 
 -   id: "Rodando teste unitario"
     name: 'mirror.gcr.io/library/golang'
-    args: ["test","src/main/soma_test.go"]
+    args: ["go", "test","src/main/soma_test.go"]
 
 -   id: "Push da imagem gerada"
     name: 'gcr.io/cloud-builders/docker'
