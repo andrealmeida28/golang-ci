@@ -1,0 +1,17 @@
+steps:
+
+-   id: "Rodando Docker Compose"
+    name: 'gcr.io/$PROJECT_ID/docker-compose'
+    args: ['-f','docker-compose.yaml', 'up', '-d']
+
+#adicione este step depois do up -d
+
+-   id: "Chown in /var/www"
+    name: 'gcr.io/cloud-builders/docker'
+    args: ['exec','-u','root','-t','app','chown','-R','www-data:www-data','/go']
+
+-   id: "Rodando docker ps"
+    name: 'gcr.io/cloud-builders/docker'
+    args: ['ps']
+
+
