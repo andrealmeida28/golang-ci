@@ -1,25 +1,26 @@
 steps:
 
--   id: "Rodando Docker Compose"
-    name: 'gcr.io/$PROJECT_ID/docker-compose'
-    args: ['-f','docker-compose.yaml', 'up', '-d']
+-   id: "Buildando o soma.go"
+    name: 'mirror.gcr.io/library/golang'
+    env: ['GO111MODULE=on']
+    args: ['go','build','soma.go']
 
-#adicione este step depois do up -d
-
--   id: "Rodando docker ps"
-    name: 'gcr.io/cloud-builders/docker'
-    args: ['ps']
+-   id: "Rodando teste unitario"
+    name: 'mirror.gcr.io/library/golang'
+    args: ['go','test', '-v']
 
 -   id: "Push da imagem gerada"
     name: 'gcr.io/cloud-builders/docker'
     args:
-        - 'build'
+        - 'build'  
         - '--build-arg'
-        - 'DOCKER_COMPOSE_VERSION=${_DOCKER_COMPOSE_VERSION}'
+        - 'version=1.1.0'
         - '-t'
         - 'gcr.io/$PROJECT_ID/golangci:latest'
+        - '-t'
+        - 'gcr.io/$PROJECT_ID/golangci:1.1.0'
         - '.'
-    images:
-        - 'gcr.io/$PROJECT_ID/golangci:latest'
+images:
+    - 'gcr.io/$PROJECT_ID/golangci:latest'
 
 
