@@ -2,8 +2,8 @@ steps:
 
 -   id: "Buildando o soma.go"
     name: 'mirror.gcr.io/library/golang'
-    env: ['GO111MODULE=on', 'GOPATH=.']
     args: ['go','build','soma.go']
+    env: ['GOPATH=.']
 
 -   id: "Rodando o teste unitario soma_test.go"
     name: 'mirror.gcr.io/library/golang'
