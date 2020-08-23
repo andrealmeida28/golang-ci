@@ -4,9 +4,9 @@ services:
     app:
         build: .
         container_name: golangApp
-        ports:
-            - "6060:8080"
-        depends_on: 
-            - redis
-    redis:
-        image: "redis:alpine"
+        #ports:
+            #- "6060:8080"
+        #depends_on: 
+            #- redis
+    #redis:
+        #image: "redis:alpine"
