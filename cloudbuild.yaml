@@ -2,7 +2,7 @@ steps:
 
 -   id: "Buildando o soma.go"
     name: 'mirror.gcr.io/library/golang'
-    env: ['GOPATH=/src/main/']
+    env: ['GOPATH=/main']
     args: ['go','build','soma.go']
 
 -   id: "Rodando teste unitario"
