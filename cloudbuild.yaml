@@ -10,4 +10,16 @@ steps:
     name: 'gcr.io/cloud-builders/docker'
     args: ['ps']
 
+-   id: "Push da imagem gerada"
+    name: 'gcr.io/cloud-builders/docker'
+    args:
+        - 'build'
+        - '--build-arg'
+        - 'DOCKER_COMPOSE_VERSION=${_DOCKER_COMPOSE_VERSION}'
+        - '-t'
+        - 'gcr.io/$PROJECT_ID/golangci:latest'
+        - '.'
+    images:
+        - 'gcr.io/$PROJECT_ID/golangci:latest'
+
 
