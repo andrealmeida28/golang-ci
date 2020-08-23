@@ -17,8 +17,6 @@ steps:
         - 'version=1.1.0'
         - '-t'
         - 'gcr.io/$PROJECT_ID/golangci:latest'
-        - '-t'
-        - 'gcr.io/$PROJECT_ID/golangci:1.1.0'
         - '.'
 images:
     - 'gcr.io/$PROJECT_ID/golangci:latest'
