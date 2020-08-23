@@ -2,11 +2,11 @@ FROM golang
 
 ADD ./src/app/main /go/src/app
 
-RUN go get golang.org/x/net/html
-RUN go get github.com/go-redis/redis
+#RUN go get golang.org/x/net/html
+#RUN go get github.com/go-redis/redis
 
-RUN go install wscraper
+#RUN go install wscraper
 
-ENTRYPOINT /go/bin/wscraper
+#ENTRYPOINT /go/bin/wscraper
 
-EXPOSE 8080
+#EXPOSE 8080
